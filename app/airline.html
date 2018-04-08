@@ -8,15 +8,18 @@
   <script>
     $( document ).ready(function() {
 
+      // get data associated with unconfirmed booking made on Skyscanner
       let searchParams = new URLSearchParams(window.location.search);
       var booking_id = searchParams.get('booking_id');
       var user_id = searchParams.get('user_id');
       var airline_id = searchParams.get('airline_id');
 
+      // populate inputs
       $('#booking_id').val(booking_id);
       $('#user_id').val(user_id);
       $('#airline_id').val(airline_id);
 
+      // interacts with function to use smart contract abstraction in app.js
       $('#btnConfirm').click(function() {
         var booking_id = $('#booking_id').val();
         var user_id = $('#user_id').val();
@@ -24,7 +27,7 @@
         App.confirm(booking_id, user_id, airline_id);
         $(this).attr('disabled', 'disabled');
       });
-      
+
     });
   </script>
 </head>

@@ -8,9 +8,11 @@
   <script>
     $( document ).ready(function() {
 
+      // if user wants to simulate being logged in, get id from url
       let searchParams = new URLSearchParams(window.location.search);
       var logged_in = searchParams.get('user_id');
 
+      // populate paragraphs and inputs
       $('#user_id').val(logged_in);
       $('#login_user_id').text(logged_in);
       $('#booking_id').val(App.generateId());
@@ -20,6 +22,7 @@
         $('#login_status').text("Logged in");
       }
 
+      // interacts with function to use smart contract abstraction in app.js
       $('#btnCreate').click(function() {
         var booking_id = $('#booking_id').val();
         var user_id = $('#user_id').val();
