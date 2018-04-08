@@ -75,7 +75,7 @@ window.App = {
     }).then(() => {
       $('.loading').css('display', 'block');
       var url = "/airline.html?booking_id=" + booking_id + "&user_id=" + user_id + "&airline_id=ryanair";
-      setTimeout(() => { window.location = url; }, 3000);
+      setTimeout(() => { window.location = url; }, 2000);
     }).catch(e => {
       console.log(e);
       App.showError("Booking id has already been used");
