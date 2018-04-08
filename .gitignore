@@ -4,3 +4,4 @@ package-lock.json
 
 # truffle stuff
 build/
+test/
