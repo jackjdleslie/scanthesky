@@ -6,15 +6,10 @@ contract ScanTheSky {
     enum BookingState {EMPTY, UNCONFIRMED, CONFIRMED}
     mapping (string => mapping (string => uint)) private timesBooked;
     mapping (string => BookingState) private hasBooked;
-    string public name;
 
     event LogTimesBooked(string _user, string _airline, uint _count);
     event LogUnconfirmedBooking(string _booking);
     event LogHasBooked(string _booking);
-
-    function ScanTheSky() public {
-        name = "Scan The Sky";
-    }
 
     function createBooking(string _booking) public {
         require(hasBooked[_booking] == BookingState.EMPTY);
