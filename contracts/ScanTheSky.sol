@@ -9,7 +9,7 @@ contract ScanTheSky {
 
     event LogTimesBooked(string _user, string _airline, uint _count);
     event LogUnconfirmedBooking(string _booking);
-    event LogHasBooked(string _booking, string _from, string _to);
+    event LogHasBooked(string _booking);
 
     function ScanTheSky() public {
         name = "Scan The Sky";
@@ -21,10 +21,10 @@ contract ScanTheSky {
         emit LogUnconfirmedBooking(_booking);
     }
 
-    function confirmBooking(string _booking, string _user, string _airline, string _from, string _to) public {
+    function confirmBooking(string _booking, string _user, string _airline) public {
         require(hasBooked[_booking] == 1);
         hasBooked[_booking] = 2;
-        emit LogHasBooked(_booking, _from, _to);
+        emit LogHasBooked(_booking);
         if (bytes(_user).length != 0) {
             timesBooked[_user][_airline] += 1;
             emit LogTimesBooked(_user, _airline, timesBooked[_user][_airline]);

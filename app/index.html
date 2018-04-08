@@ -14,21 +14,25 @@
       $('#user_id').val(logged_in);
       $('#login_user_id').text(logged_in);
       $('#booking_id').val(App.generateId());
+      if (!searchParams.has('user_id') || logged_in.length == 0) {
+        $('#login_status').text("Not logged in");
+      } else {
+        $('#login_status').text("Logged in");
+      }
 
       $('#btnCreate').click(function() {
         var booking_id = $('#booking_id').val();
         var user_id = $('#user_id').val();
-        var airport_from = $('#airport_from').val();
-        var airport_to = $('#airport_to').val();
-        App.create(booking_id, user_id, airport_from, airport_to);
+        App.create(booking_id, user_id);
         $(this).attr('disabled', 'disabled');
       });
+
     });
   </script>
 </head>
 <body>
   <div class="login-info">
-    <p><b>Logged in as: Jack</b></p>
+    <b><p id="login_status"></p></b>
     <p id="login_user_id"></p>
   </div>
   <img src="./images/skyscanner.png" width="600px"/>
@@ -50,10 +54,6 @@
   <input type="text" name="user_id" id="user_id" value="" disabled><br>
   <label for="booking_id">Booking ID</label>
   <input type="text" name="booking_id" id="booking_id" value="" disabled><br>
-  <label for="airport_from">Airport from</label>
-  <input type="text" name="airport_from" id="airport_from" value="Edinburgh" disabled><br>
-  <label for="airport_to">Airport to</label>
-  <input type="text" name="airport_to" id="airport_to" value="Budapest" disabled>
   <br><br>
   <br>
   <span id="status"></span>
