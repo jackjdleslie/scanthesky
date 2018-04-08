@@ -32,6 +32,8 @@ To run and serve the front-end on [http://localhost:8080](http://localhost:8080)
 npm run dev
 ```
 
+(note: if you want to simulate being logged in, add a query parameter user_id with the id you want to use - for example [http://localhost:8080?user_id=testuser](http://localhost:8080?user_id=testuser))
+
 ### Watching for smart contract events
 
 To obtain the data from the emitted smart contract events:
