@@ -9,11 +9,14 @@
     $( document ).ready(function() {
 
       $('#user_id').val($('#login_user_id').text());
+      $('#booking_id').val(App.generateId());
 
       $('#btnCreate').click(function() {
         var booking_id = $('#booking_id').val();
         var user_id = $('#user_id').val();
-        App.create(booking_id, user_id);
+        var airport_from = $('#airport_from').val();
+        var airport_to = $('#airport_to').val();
+        App.create(booking_id, user_id, airport_from, airport_to);
         $(this).attr('disabled', 'disabled');
       });
     });
@@ -42,7 +45,11 @@
   <label for="user_id">User ID</label>
   <input type="text" name="user_id" id="user_id" value="" disabled>
   <label for="booking_id">Booking ID</label>
-  <input type="text" name="booking_id" id="booking_id" value="skcs-ab12-cd34" disabled>
+  <input type="text" name="booking_id" id="booking_id" value="" disabled>
+  <label for="airport_from">Airport from</label>
+  <input type="text" name="airport_from" id="airport_from" value="" placeholder="e.g Edinburgh">
+  <label for="airport_to">Airport to</label>
+  <input type="text" name="airport_to" id="airport_to" value="" placeholder="e.g Budapest">
   <br><br>
   <br>
   <span id="status"></span>

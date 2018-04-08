@@ -12,15 +12,20 @@
       var booking_id = searchParams.get('booking_id');
       var user_id = searchParams.get('user_id');
       var airline_id = searchParams.get('airline_id');
+      var airport_from = searchParams.get('airport_from');
+      var airport_to = searchParams.get('airport_to');
+
       $('#booking_id').val(booking_id);
       $('#user_id').val(user_id);
       $('#airline_id').val(airline_id);
+      $('#airport_from').val(airport_from);
+      $('#airport_to').val(airport_to);
 
       $('#btnConfirm').click(function() {
         var booking_id = $('#booking_id').val();
         var user_id = $('#user_id').val();
         var airline_id = $('#airline_id').val();
-        App.confirm(booking_id, user_id, airline_id);
+        App.confirm(booking_id, user_id, airline_id, airport_from, airport_to);
         $(this).attr('disabled', 'disabled');
       });
     });
@@ -52,6 +57,10 @@
   <input type="text" name="booking_id" id="booking_id" value="" disabled>
   <label for="airline_id">Airline ID</label>
   <input type="text" name="airline_id" id="airline_id" value="" disabled>
+  <label for="airport_from">Airport from</label>
+  <input type="text" name="airport_from" id="airport_from" value="" disabled>
+  <label for="airport_to">Airport to</label>
+  <input type="text" name="airport_to" id="airport_to" value="" disabled>
   <br>
   <span id="status"></span>
 </body>

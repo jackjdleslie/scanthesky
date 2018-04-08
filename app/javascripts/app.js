@@ -44,6 +44,10 @@ window.App = {
 
   },
 
+  generateId: function() {
+    return Math.round(new Date().getTime() + (Math.random() * 100));
+  },
+
   showSuccess: function(message) {
     swal({
       title: 'Booking Confirmed',
@@ -63,7 +67,7 @@ window.App = {
     )
   },
 
-  create: function(booking_id, user_id) {
+  create: function(booking_id, user_id, airport_from, airport_to) {
     var self = this;
 
     ScanTheSky.deployed().then(instance => {
@@ -71,6 +75,7 @@ window.App = {
     }).then(() => {
       $('.loading').css('display', 'block');
       var url = "/airline.html?booking_id=" + booking_id + "&user_id=" + user_id + "&airline_id=ryanair";
+      url += "&airport_from=" + airport_from + "&airport_to=" + airport_to;
       setTimeout(() => { window.location = url; }, 3000);
     }).catch(e => {
       console.log(e);
@@ -78,11 +83,11 @@ window.App = {
     });
   },
 
-  confirm: function(booking_id, user_id, airline_id) {
+  confirm: function(booking_id, user_id, airline_id, airport_from, airport_to) {
     var self = this;
 
     ScanTheSky.deployed().then(instance => {
-      return instance.confirmBooking(booking_id, user_id, airline_id, {from: account});
+      return instance.confirmBooking(booking_id, user_id, airline_id, airport_from, airport_to, {from: account});
   }).then(() => {
       App.showSuccess("You're going to Budapest!");
   }).catch(e => {
