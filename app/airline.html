@@ -24,10 +24,23 @@
         App.confirm(booking_id, user_id, airline_id);
         $(this).attr('disabled', 'disabled');
       });
+      
     });
   </script>
 </head>
 <body>
+
+  <!--
+  This page represents the state of the Ryanair (ryanair.com) website after
+  being redirected from Skyscanner (skyscanner.net), where the flight deal
+  details have been passed by query parameters (not defined by this simulation,
+  this actually happens on the real website) query parameters that have actually
+  been passed (e.g booking_id, user_id, airline_id).
+
+  If you had not been signed in on Skyscanner, user_id will simply be empty which
+  is fine.
+  -->
+
   <img src="./images/ryanair.png" width="600px"/>
   <h3>Confirm Booking</h3>
   <div class="booking-info">
@@ -46,6 +59,12 @@
     <p class="inline-block">£53</p>
   </div>
   <button id="btnConfirm">Confirm</button>
+
+  <!--
+  This is the data that will be sent to the smart contract to confirm the booking
+  if it exists in the smart contract already as unconfirmed.
+  -->
+
   <h4>Metadata</h4>
   <label for="user_id">User ID</label>
   <input type="text" name="user_id" id="user_id" value="" disabled><br>

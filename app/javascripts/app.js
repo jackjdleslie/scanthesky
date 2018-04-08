@@ -69,8 +69,6 @@ window.App = {
   },
 
   create: function(booking_id, user_id) {
-    var self = this;
-
     ScanTheSky.deployed().then(instance => {
       return instance.createBooking(booking_id, {from: account});
     }).then(() => {
@@ -79,25 +77,24 @@ window.App = {
       setTimeout(() => { window.location = url; }, 2000);
     }).catch(e => {
       console.log(e);
-      App.showError("Booking id has already been used");
+      App.showError(e.message);
     });
   },
 
   confirm: function(booking_id, user_id, airline_id) {
-    var self = this;
-
     ScanTheSky.deployed().then(instance => {
       return instance.confirmBooking(booking_id, user_id, airline_id, {from: account});
-  }).then(() => {
-      App.showSuccess("You're going to Budapest!");
-  }).catch(e => {
-      console.log(e);
-      App.showError(e.message);
-  });
+    }).then(() => {
+        App.showSuccess("You're going to Budapest!");
+    }).catch(e => {
+        console.log(e);
+        App.showError(e.message);
+    });
   }
 };
 
 window.addEventListener('load', function() {
+  // truffle develop
   window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:9545"));
   App.start();
 });
