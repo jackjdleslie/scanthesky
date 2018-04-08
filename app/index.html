@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skyscanner</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    $( document ).ready(function() {
+
+      $('#user_id').val($('#login_user_id').text());
+
+      $('#btnCreate').click(function() {
+        var booking_id = $('#booking_id').val();
+        var user_id = $('#user_id').val();
+        App.create(booking_id, user_id);
+        $(this).attr('disabled', 'disabled');
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="login-info">
+    <p><b>Logged in as: Jack</b></p>
+    <p id="login_user_id">user37</p>
+  </div>
+  <img src="./app/images/skyscanner.png" width="600px"/>
+  <h3>Book your ticket</h3>
+  <div class="booking-info">
+    <p>20th April 2018</p>
+    <p class="inline-block">07:20 EDI</p>
+    <p class="inline-block">→</p>
+    <p class="inline-block">11:10 BUD</p>
+    <p>2h 50 Direct</p>
+  </div>
+  <div class="booking-info">
+    <img class="inline-block" src="./app/images/ryanair.png" width="100px"/>
+    <p class="inline-block">£53</p>
+  </div>
+  <button id="btnCreate">Select →</button>
+  <h4>Metadata</h4>
+  <label for="user_id">User ID</label>
+  <input type="text" name="user_id" id="user_id" value="" disabled>
+  <label for="booking_id">Booking ID</label>
+  <input type="text" name="booking_id" id="booking_id" value="skcs-ab12-cd34" disabled>
+  <br><br>
+  <br>
+  <span id="status"></span>
+
+  <div class="loading">
+    <h1>Thank you, almost there...</h1>
+    <div class="booking-info">
+      <img class="inline-block" src="./app/images/skyscanner.png" width="150px"/>
+      <p class="inline-block">→</p>
+      <img class="inline-block" src="./app/images/ryanair.png" width="150px"/>
+      <h3>We're taking you to Ryanair</h3>
+    </div>
+  </div>
+</body>
+</html>

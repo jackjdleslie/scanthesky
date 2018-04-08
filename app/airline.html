@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Airline</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    $( document ).ready(function() {
+
+      let searchParams = new URLSearchParams(window.location.search);
+      var booking_id = searchParams.get('booking_id');
+      var user_id = searchParams.get('user_id');
+      var airline_id = searchParams.get('airline_id');
+      $('#booking_id').val(booking_id);
+      $('#user_id').val(user_id);
+      $('#airline_id').val(airline_id);
+
+      $('#btnConfirm').click(function() {
+        var booking_id = $('#booking_id').val();
+        var user_id = $('#user_id').val();
+        var airline_id = $('#airline_id').val();
+        App.confirm(booking_id, user_id, airline_id);
+        $(this).attr('disabled', 'disabled');
+      });
+    });
+  </script>
+</head>
+<body>
+  <img src="./app/images/ryanair.png" width="600px"/>
+  <h3>Confirm Booking</h3>
+  <div class="booking-info">
+    <p style="padding-bottom:15px;"><b>Flight Details</b></p>
+    <p>20th April 2018</p>
+    <p class="inline-block">07:20 EDI</p>
+    <p class="inline-block">→</p>
+    <p class="inline-block">11:10 BUD</p>
+    <p>2h 50 Direct</p>
+    <p class="inline-block">Economy Seat</p>
+    <p class="inline-block">26B</p>
+  </div>
+  <div class="booking-info">
+    <p><b>Billing Details</b></p>
+    <p class="inline-block">Mastercard XXXX-XXXX-XXXX-1234</p>
+    <p class="inline-block">£53</p>
+  </div>
+  <button id="btnConfirm">Confirm</button>
+  <h4>Metadata</h4>
+  <label for="user_id">User ID</label>
+  <input type="text" name="user_id" id="user_id" value="" disabled>
+  <label for="booking_id">Booking ID</label>
+  <input type="text" name="booking_id" id="booking_id" value="" disabled>
+  <label for="airline_id">Airline ID</label>
+  <input type="text" name="airline_id" id="airline_id" value="" disabled>
+  <br>
+  <span id="status"></span>
+</body>
+</html>

@@ -1,0 +1,140 @@
+body {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 3%;
+  font-family: "Open Sans", sans-serif;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+input {
+  width: 500px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+button {
+  font-size: 16px;
+  padding: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+button:focus {
+  outline: none;
+}
+
+h1, h2 {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #AAA;
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: normal;
+  color: #AAA;
+  font-size: 24px;
+}
+
+h4 {
+  font-weight: normal;
+  color: #AAA;
+  font-size: 18px;
+}
+
+.black {
+  color: black;
+}
+
+#balance {
+  color: black;
+}
+
+.hint {
+  color: #666;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/*
+Login info
+ */
+
+.login-info {
+  position: absolute;
+  top:0;
+  right: 0;
+  margin: 10px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.login-info {
+  line-height: 10px;
+}
+
+#login_user_id {
+  color: #AAA;
+}
+
+/*
+Booking info
+ */
+
+.booking-info {
+  background-color: rgba(0,0,0,0.03);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.booking-info p {
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 10px;
+}
+
+.booking-info img {
+  padding-left: 20px;
+}
+
+/*
+Loading
+ */
+
+.loading {
+  display: none;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: calc(100% - 300px);
+  height: calc(100vh - 300px);
+  background-color: white;
+  padding: 150px;
+}
+
+.loading .booking-info {
+  width: 500px;
+}
+
+.loading h1 {
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.loading h3 {
+  line-height: 0;
+  padding-left: 30px;
+}
