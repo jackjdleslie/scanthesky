@@ -52,10 +52,11 @@ window.App = {
     swal({
       title: 'Booking Confirmed',
       text: message,
-      type: 'success',
-      showConfirmButton: false,
-      allowOutsideClick: false,
-      allowEscapeKey: false
+      type: 'success'
+    }).then(result => {
+      if (result.value) {
+        window.location = "/";
+      }
     });
   },
 
