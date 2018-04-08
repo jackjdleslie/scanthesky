@@ -45,11 +45,14 @@ window.App = {
   },
 
   showSuccess: function(message) {
-    swal(
-      'Booking Confirmed',
-      message,
-      'success'
-    )
+    swal({
+      title: 'Booking Confirmed',
+      text: message,
+      type: 'success',
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false
+    });
   },
 
   showError: function(message) {
@@ -90,6 +93,6 @@ window.App = {
 };
 
 window.addEventListener('load', function() {
-  window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
+  window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:9545"));
   App.start();
 });
