@@ -8,7 +8,11 @@
   <script>
     $( document ).ready(function() {
 
-      $('#user_id').val($('#login_user_id').text());
+      let searchParams = new URLSearchParams(window.location.search);
+      var logged_in = searchParams.get('user_id');
+
+      $('#user_id').val(logged_in);
+      $('#login_user_id').text(logged_in);
       $('#booking_id').val(App.generateId());
 
       $('#btnCreate').click(function() {
@@ -25,7 +29,7 @@
 <body>
   <div class="login-info">
     <p><b>Logged in as: Jack</b></p>
-    <p id="login_user_id">user37</p>
+    <p id="login_user_id"></p>
   </div>
   <img src="./images/skyscanner.png" width="600px"/>
   <h3>Book your ticket</h3>
@@ -43,13 +47,13 @@
   <button id="btnCreate">Select →</button>
   <h4>Metadata</h4>
   <label for="user_id">User ID</label>
-  <input type="text" name="user_id" id="user_id" value="" disabled>
+  <input type="text" name="user_id" id="user_id" value="" disabled><br>
   <label for="booking_id">Booking ID</label>
-  <input type="text" name="booking_id" id="booking_id" value="" disabled>
+  <input type="text" name="booking_id" id="booking_id" value="" disabled><br>
   <label for="airport_from">Airport from</label>
-  <input type="text" name="airport_from" id="airport_from" value="" placeholder="e.g Edinburgh">
+  <input type="text" name="airport_from" id="airport_from" value="Edinburgh" disabled><br>
   <label for="airport_to">Airport to</label>
-  <input type="text" name="airport_to" id="airport_to" value="" placeholder="e.g Budapest">
+  <input type="text" name="airport_to" id="airport_to" value="Budapest" disabled>
   <br><br>
   <br>
   <span id="status"></span>
