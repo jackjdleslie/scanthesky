@@ -48,7 +48,7 @@ The front-end is a simulation of the [Skyscanner](http://www.skyscanner.net/) we
 provider's website (in this case [Ryanair](https://www.ryanair.com/)). As the user, you have just chosen a flight
 deal on Skyscanner's website, and are ready to be redirected to the Ryanair website to book the deal.
 
-From Skyscanner's perspective, when you redirect they theb don't know whether or not the flight ever gets booked - just
+From Skyscanner's perspective, after you redirect they don't know whether or not the flight ever gets booked - just
 that the user was redirected.
 
 ## How does this fix the problem?
